@@ -4,12 +4,21 @@ import ReactDOM from "react-dom";
 
 function pass(){
     let [password,setpassword] = useState("");
-   
+    let [count,setcount] = useState(10);
+    let [number,setnumber] = useState("false");
+    let [char,setchar] = useState("false");
 
 
 
     return(
-        <h1>{password}</h1>
+        <div>
+            <h1>{password}</h1>
+
+            <div>
+                
+            </div>
+        </div>
+        
 
     );
     
