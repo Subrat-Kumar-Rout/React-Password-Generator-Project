@@ -3,12 +3,14 @@ body{
     padding: 0px;
     box-sizing: border-box;
     height: 100vh;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
-#main{
-    height: 500px;
-    width: 800px;
+#root{
+    height: 200px;
+    width: 400px;
     background-color: antiquewhite;
     text-align: center;
 }
