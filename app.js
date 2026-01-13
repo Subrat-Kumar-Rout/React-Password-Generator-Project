@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect, useCallback} from "react";
 import ReactDOM from "react-dom/client";
 
 
@@ -9,7 +9,9 @@ function Pass(){
     let [char,setchar] = useState(false);
 
 
-    function updatepass(){
+
+
+     const updatepass = useCallback(()=>{
         let chare = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
         if(number){
             chare += "1234567890"
@@ -25,12 +27,13 @@ function Pass(){
         }
 
         setpassword(res);
-    }
+    },[count,number,char]);
+    
 
     
     useEffect(()=>
         updatepass()
-        ,[count,number,char])
+        ,[updatepass])
 
 
 
@@ -39,7 +42,7 @@ function Pass(){
             <h1>{password}</h1>
 
             <div>
-                <input type="range" min={5} max={20} onChange={(e)=>setcount(e.target.value)}></input>
+                <input type="range" min={5} max={20} onChange={(e)=>setcount(Number(e.target.value))}></input>
                 <label>Range:{count}</label>
 
                 <input type="checkbox" defaultChecked={number} onChange={()=>setnumber(!number)}></input>
